@@ -9,10 +9,22 @@ import java.io.*;
 */
 public class MapGen
 {
-  public static Map GenerateMap(File source) throws IOException
+  /**
+  * Generate the map from a source file.
+  * @param source The image that describes the map
+  */
+  public static Map GenerateMap(File source)
   {
     BufferedImage img = null;
-    img = ImageIO.read(source);
+
+    try
+    {
+      img = ImageIO.read(source);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
 
     int width = img.getWidth();
     int height = img.getHeight();
