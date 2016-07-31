@@ -9,6 +9,7 @@ import java.io.*;
 */
 public class MapGen
 {
+  
   /**
   * Generate the map from a source file.
   * @param source The image that describes the map

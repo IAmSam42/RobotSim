@@ -9,30 +9,37 @@ import javax.swing.*;
 public class MapView extends JPanel
 {
   private final Map map;
-  private final JFrame window;
 
-  private double xScale;
-  private double yScale;
+  private double xScale;  //The width of each tile.
+  private double yScale;  //The height of each tile.
 
   private ArrayList<Rectangle2D> tiles;
 
-
-  public MapView(Map map, JFrame window)
+  /**
+  * Create the map view.
+  * @param map The map to create the view from.
+  */
+  public MapView(Map map)
   {
     super();
 
     this.map = map;
-    this.window = window;
 
     tiles = new ArrayList<Rectangle2D>();
   }
 
+  /**
+  * Calcualte the scale of the tiles.
+  */
   public void setScale()
   {
     xScale = this.getSize().width/(double)(map.getWidth());
     yScale = this.getSize().height/(double)(map.getHeight());
   }
 
+  /**
+  * Generate all of the tile.
+  */
   public void genTiles()
   {
     tiles.clear();
@@ -46,6 +53,9 @@ public class MapView extends JPanel
     }
   }
 
+  /**
+  * Paint the tiles.
+  */
   public void paint(Graphics g)
   {
     Graphics2D g2 = (Graphics2D)g;

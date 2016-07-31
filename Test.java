@@ -16,8 +16,7 @@ class Test
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-    MapView view = new MapView(map, window);
-    //view.setSize(400, 400);
+    MapView view = new MapView(map);
 
 
     window.add(view);
