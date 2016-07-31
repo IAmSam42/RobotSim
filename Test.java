@@ -1,4 +1,6 @@
 import map.*;
+import gui.*;
+
 import java.io.File;
 import javax.swing.*;
 

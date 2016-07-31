@@ -65,9 +65,20 @@ public class MapView extends JPanel
     setScale();
     genTiles();
 
-    for(Rectangle2D tile : tiles)
+    for(double i=0; i<map.getWidth(); i++)
     {
-      g2.draw(tile);
+      for(double j=0; j<map.getHeight(); j++)
+      {
+        if(map.getTile((int)i, (int)j) == Map.WALL)
+        {
+          g2.setPaint(Color.BLACK);
+        }
+        else
+        {
+          g2.setPaint(Color.WHITE);
+        }
+        g2.fill(new Rectangle2D.Double(i*xScale, j*yScale, xScale, yScale));
+      }
     }
   }
 }

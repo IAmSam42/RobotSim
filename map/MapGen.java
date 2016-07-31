@@ -1,5 +1,6 @@
 package map;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
@@ -9,7 +10,7 @@ import java.io.*;
 */
 public class MapGen
 {
-  
+
   /**
   * Generate the map from a source file.
   * @param source The image that describes the map
@@ -36,15 +37,17 @@ public class MapGen
     {
       for(int j = 0; j<height; j++)
       {
-        int value = img.getRGB(i, j);
+        int clr = img.getRGB(i, j);
 
-        if(value == 255)
+        Color colour = new Color(clr, true);
+
+        if(colour.getRed() == 255 && colour.getBlue() == 255 && colour.getGreen() == 255)
         {
-          map.setTile(i, j, 0);
+          map.setTile(i, j, Map.WALL);
         }
         else
         {
-          map.setTile(i, j, 1);
+          map.setTile(i, j, Map.FLOOR);
         }
       }
     }
