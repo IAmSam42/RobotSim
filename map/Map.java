@@ -25,6 +25,16 @@ public class Map
     }
   }
 
+  public int getWidth()
+  {
+      return width;
+  }
+
+  public int getHeight()
+  {
+    return height;
+  }
+
   public void setTile(int xCoord, int yCoord, int tileType)
   {
     mapTiles[xCoord][yCoord] = tileType;
