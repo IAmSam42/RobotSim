@@ -1,10 +1,12 @@
 package map;
 
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import javax.swing.*;
-import java.awt.Graphics;
 
 @SuppressWarnings("serial")
-public class MapView extends JComponent
+public class MapView extends JPanel
 {
   private final Map map;
   private final JFrame window;
@@ -12,30 +14,48 @@ public class MapView extends JComponent
   private double xScale;
   private double yScale;
 
+  private ArrayList<Rectangle2D> tiles;
+
 
   public MapView(Map map, JFrame window)
   {
+    super();
+
     this.map = map;
     this.window = window;
 
-    setScale();
+    tiles = new ArrayList<Rectangle2D>();
   }
 
   public void setScale()
   {
-    xScale = window.getBounds().width/(double)(map.getWidth());
-    yScale = (window.getBounds().height)/(double)(map.getHeight());
+    xScale = this.getSize().width/(double)(map.getWidth());
+    yScale = this.getSize().height/(double)(map.getHeight());
   }
 
-  public void paint(Graphics g)
+  public void genTiles()
   {
-    setScale();
+    tiles.clear();
+
     for(double i=0; i<map.getWidth(); i++)
     {
       for(double j=0; j<map.getHeight(); j++)
       {
-        g.drawRect((int)(i*xScale), (int)(j*yScale), (int)xScale, (int)yScale);
+        tiles.add(new Rectangle2D.Double(i*xScale, j*yScale, xScale, yScale));
       }
+    }
+  }
+
+  public void paint(Graphics g)
+  {
+    Graphics2D g2 = (Graphics2D)g;
+
+    setScale();
+    genTiles();
+
+    for(Rectangle2D tile : tiles)
+    {
+      g2.draw(tile);
     }
   }
 }

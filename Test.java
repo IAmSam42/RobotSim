@@ -11,12 +11,15 @@ class Test
     map = MapGen.GenerateMap(new File("resources/maps/map.png"));
 
 
-    JFrame window = new JFrame();
+    JFrame window = new JFrame("Robot Simulation");
+    window.setSize(300, 300);
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
     MapView view = new MapView(map, window);
+    //view.setSize(400, 400);
 
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    window.setBounds(30, 30, 300, 300);
+
     window.add(view);
     window.setVisible(true);
   }
