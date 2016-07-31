@@ -47,7 +47,7 @@ public class MapGen
         }
         else
         {
-          map.setTile(i, j, Map.FLOOR);
+          map.setTile(i, j, Map.OPEN);
         }
       }
     }
