@@ -1,4 +1,6 @@
-package map;
+package gui;
+
+import map.Map;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
