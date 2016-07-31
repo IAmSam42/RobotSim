@@ -9,6 +9,9 @@ public class Map
   private final int width;
   private final int height;
 
+  public final static int OPEN = 0;
+  public final static int WALL = 1;
+
   /**
   * Create the Map.
   * @param width The number of tiles wide the map is.
