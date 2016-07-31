@@ -1,2 +1,4 @@
-# .gitignore
+# Which files git should ignore
+
+## Ignore all Java class files
 *.class
